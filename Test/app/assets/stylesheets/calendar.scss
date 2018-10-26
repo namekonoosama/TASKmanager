@@ -1,0 +1,93 @@
+// Place all the styles related to the Calendar controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+// Place all the styles related to the Calendar controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+body{
+    font-family: 'Oxygen',"Hiragino Maru Gothic Pro",sans-serif;
+    padding: 5px;
+}
+
+h2{
+    display: inline-block;
+  }
+
+.sidebar_title{
+    position:relative;
+    top:-27px;
+    left:-3px;
+    background-color: #6eb7ff;
+    color: #FFF;
+    padding:0 9px;
+    height:25px;
+    line-height: 27px;
+    font-weight: bold;
+    font-size: 17px;
+    border-radius: 5px 5px 0 0;
+}
+
+.sidebar{
+    position:fixed;
+    border: solid 3px #6eb7ff;
+    right:5px;
+    bottom:5px;
+    height:85vh;
+    width:100px;
+    box-shadow: 0 3px 4px rgba(0,0,0,0.32);
+}
+
+th{
+    text-align: center;
+    height: 5px;
+}
+
+td{
+    background-color: #EEEEEE;
+    height: 50px;
+    padding:5px 20px 20px 5px;
+    vertical-align: text-top;
+    border-radius: 3px;
+    box-shadow: 0 3px 4px rgba(0,0,0,0.32);
+}
+
+.link{
+color:black;
+text-decoration: none;
+}
+
+table{
+table-layout: fixed;
+border-spacing: 10px;
+width:85%;
+}
+.schedule{
+width: 85%;
+display: grid;
+grid-template-columns:repeat(24,1fr);
+grid-template-rows:1.4em 50px 50px;
+grid-auto-rows:50px;
+}
+.background{
+grid-row: 2/4;
+grid-column: 1/25;
+background-color: #EEEEEE;
+border-radius: 3px;
+box-shadow: 0 3px 4px rgba(0,0,0,0.32);
+}
+.item{
+margin:10px 5px;
+grid-row: 2 / 3;
+grid-column: 4;
+background-color:#6eb7ff;
+border-radius: 10px;
+}
+.item2{
+margin:10px 5px;
+grid-row: 3 / 4;
+grid-column: 5 /12;
+background-color:#6eb7ff;
+border-radius: 10px;
+}

@@ -1,0 +1,58 @@
+<h1>カレンダー</h1>
+
+<!-- 年月とその前後移動 -->
+<div>
+  <%= link_to "<<", "/back_month/#{@date.year}/#{@date.month}/#{@date.day}"%>
+    <h2><%= @date.year %>年<%= @date.month %>月</h2>
+  <%= link_to ">>", "/next_month/#{@date.year}/#{@date.month}/#{@date.day}"%>
+<div>
+
+<table>
+  <!-- 曜日 -->
+  <tr>
+    <th>月</th>
+    <th>火</th>
+    <th>水</th>
+    <th>木</th>
+    <th>金</th>
+    <th>土</th>
+    <th>日</th>
+  </tr>
+  <!-- 日付 -->
+  <%for i in 0..@calendar.length - 1%>
+    <tr>
+    <% for j in 0..@calendar[0].length - 1%>
+      <% if i==5 && j==0 && @calendar[i][j]==0 %>
+        <% break %>
+      <% elsif @calendar[i][j] == 0 %>
+        <td></td>
+      <% else %>
+        <td><%= link_to @calendar[i][j], "/day_schedule/#{@date.year}/#{@date.month}/#{@calendar[i][j]}", class:"link"%></td>
+      <% end %>
+    <% end %>
+    </tr>
+  <% end %>
+</table>
+
+<!-- サイドバー -->
+ <div class="sidebar">
+   <span class="sidebar_title">ボタン</span>
+ </div>
+
+<!-- 日付 -->
+<div>
+  <%= link_to "<<", "/day_schedule/#{@date.year}/#{@date.month}/#{@date.day}"%>
+  <h2><%= @date.day %>日</h2>
+  <%= link_to ">>", "/day_schedule/#{@date.year}/#{@date.month}/#{@date.day}"%>
+  <%= link_to "今日", "/today" %>
+</div>
+
+<!-- 時間帯 -->
+<div class="schedule">
+  <div class="background"></div>
+  <%for i in 0..23 do%>
+    <span class="time"><%=i%></span>
+  <%end%>
+  <div class="item"></div>
+  <div class="item2"></div>
+</div>
