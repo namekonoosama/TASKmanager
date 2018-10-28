@@ -1,11 +1,10 @@
-<h1>カレンダー</h1>
-
 <!-- 年月とその前後移動 -->
-<div>
-  <%= link_to "<<", "/back_month/#{@date.year}/#{@date.month}/#{@date.day}"%>
+<div class="body">
+<div class="yearMonth">
+  <%= link_to "<<", "/back_month/#{@date.year}/#{@date.month}/#{@date.day}", class:"monthLink"%>
     <h2><%= @date.year %>年<%= @date.month %>月</h2>
-  <%= link_to ">>", "/next_month/#{@date.year}/#{@date.month}/#{@date.day}"%>
-<div>
+  <%= link_to ">>", "/next_month/#{@date.year}/#{@date.month}/#{@date.day}", class:"monthLink"%>
+</div>
 
 <table>
   <!-- 曜日 -->
@@ -27,7 +26,10 @@
       <% elsif @calendar[i][j] == 0 %>
         <td></td>
       <% else %>
-        <td><%= link_to @calendar[i][j], "/day_schedule/#{@date.year}/#{@date.month}/#{@calendar[i][j]}", class:"link"%></td>
+        <td>
+        <%= link_to @calendar[i][j], "/day_schedule/#{@date.year}/#{@date.month}/#{@calendar[i][j]}", class:"link"%>
+        <%= image_tag 'flypan.png', class:"mainIcon" %>
+        </td>
       <% end %>
     <% end %>
     </tr>
@@ -37,6 +39,8 @@
 <!-- サイドバー -->
  <div class="sidebar">
    <span class="sidebar_title">ボタン</span>
+   <%= image_tag 'flypan.png', class:"sideIcon" %>
+   <%= image_tag 'bed.png', class:"sideIcon" %>
  </div>
 
 <!-- 日付 -->
@@ -47,7 +51,7 @@
   <%= link_to "今日", "/today" %>
 </div>
 
-<!-- 時間帯 -->
+<!-- スケジュール -->
 <div class="schedule">
   <div class="background"></div>
   <%for i in 0..23 do%>
@@ -56,3 +60,4 @@
   <div class="item"></div>
   <div class="item2"></div>
 </div>
+</body>
